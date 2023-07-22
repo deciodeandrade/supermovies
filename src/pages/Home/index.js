@@ -1,25 +1,27 @@
-import { useEffect, useState } from "react";
-import api from '../../services/api'
+import { useEffect, useState} from 'react';
+import api from '../../services/api';
+import { Link } from 'react-router-dom';
+import './home.css';
+
+// URL DA API: /movie/now_playing?api_key=28fc232cc001c31e8a031f419d0a14ca&language=pt-BR
 
 function Home(){
   const [filmes, setFilmes] = useState([]);
 
+
   useEffect(()=>{
 
-    async function loadFilmes() {
+    async function loadFilmes(){
       const response = await api.get("movie/now_playing", {
-        params: {
-          api_key: "f484545381bf56f35b5dbb918b89825b",
-          language: "pt-BR",
-          page: 1
-        },
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNDg0NTQ1MzgxYmY1NmYzNWI1ZGJiOTE4Yjg5ODI1YiIsInN1YiI6IjY0YjYxMzc5MGU0ZmM4NTE5ZGQyYTA5MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xc_89xRQiPflqCCSpZt0T7UXhevgyChZhbL5Wwf5T5A'
+        params:{
+         api_key: "28fc232cc001c31e8a031f419d0a14ca",
+         language: "pt-BR",
+         page: 1,
         }
       })
 
-      console.log(response);
+      //console.log(response.data.results.slice(0, 10));
+      setFilmes(response.data.results.slice(0, 10))
 
     }
 
@@ -28,8 +30,18 @@ function Home(){
   }, [])
 
   return(
-    <div>
-      <h1>Bem vindo a Home</h1>
+    <div className="container">
+      <div className="lista-filmes">
+        {filmes.map((filme) => {
+          return(
+            <article key={filme.id}>
+              <strong>{filme.title}</strong>
+              <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title} />
+              <Link to={`/filme/${filme.id}`}>Acessar</Link>
+            </article>
+          )
+        })}
+      </div>
     </div>
   )
 }
