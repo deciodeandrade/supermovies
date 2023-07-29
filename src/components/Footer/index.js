@@ -13,7 +13,7 @@ function Footer() {
             </span>
             <br />
             <span className="desenvolvedor">
-              Desenvolvido por <a className="desenvolvedor" href="https://www.linkedin.com/in/d%C3%A9cio-de-andrade-3481b91a2/" target="_blank">Décio de Andrade</a>
+              Desenvolvido por <a className="desenvolvedor" href="https://www.linkedin.com/in/d%C3%A9cio-de-andrade-3481b91a2/" target="_blank" rel="noreferrer">Décio de Andrade</a>
             </span>
           </p>
         </div>
