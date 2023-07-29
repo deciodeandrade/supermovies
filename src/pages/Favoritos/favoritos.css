@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 100px;
+  color: #fff;
 }
 
 .meus-filmes h1{
@@ -34,6 +36,6 @@
 
 .meus-filmes div a {
   text-decoration: none;
-  color: #116feb;
+  color: #fff;
   margin-right: 14px;
 }

@@ -1,11 +1,19 @@
-
 header{
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  height: 60px;
-  background-color: #000000;
+  height: 80px;
+  background-color: #9370DB;
+  vertical-align: center;
+  opacity: 1.0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .logo{
@@ -20,7 +28,7 @@ header{
   text-decoration: none;
   cursor: pointer;
   background-color: #FFF;
-  padding: 5px 14px;
-  color: #000000;
+  padding: 10px 14px;
+  color: #9370DB;
   border-radius: 4px;
 }
